@@ -1,8 +1,9 @@
 import Head from "next/head";
+import styles from "./Layout.module.scss";
 
 export default function Layout({ children, pageTitle = "LKS Kończyce Małe" }) {
   return (
-    <div>
+    <>
       <Head>
         <link rel="icon" href="/icons/favicon.ico" />
         <title>{pageTitle}</title>
@@ -11,7 +12,9 @@ export default function Layout({ children, pageTitle = "LKS Kończyce Małe" }) 
           content="Strona klubowa zespołu LKS Kończyce Małe dla piłkarzy i kibiców. Aktualności, ostatnie mecze, tabela i statystyki. "
         />
       </Head>
-      <main>{children}</main>
-    </div>
+      {/* <Header/> */}
+      <main className={styles.footballPitch}>{children}</main>
+      {/* <Footer/> */}
+    </>
   );
 }

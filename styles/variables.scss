@@ -1,0 +1,5 @@
+$baseSpacing: 1rem;
+
+@function spacing($multiplier: 1) {
+  @return $multiplier * $baseSpacing;
+}
