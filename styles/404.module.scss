@@ -1,0 +1,17 @@
+@import "../styles/palette.scss";
+@import "../styles/variables.scss";
+
+.logo {
+  margin: spacing(3) 0 spacing(3) 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $dark;
+  color: $white;
+}
