@@ -1,0 +1,106 @@
+.header {
+	width: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 100px;
+	z-index: 2;
+	transition: 0.3s;
+}
+
+.blur {
+	width: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 100px;
+	background-color: rgba($color: #000000, $alpha: 0.2);
+	transition: 0.3s;
+	z-index: 2;
+}
+
+.ul {
+	display: flex;
+	align-items: center;
+}
+
+.li {
+	position: relative;
+	padding: 0 30px;
+	font-weight: 700;
+	font-size: 1.8rem;
+	letter-spacing: 1px;
+	list-style: none;
+	color: #fff;
+	transition: 0.3s;
+	margin-bottom: 5px;
+}
+
+.li::before,
+.li::after {
+	content: '';
+	position: absolute;
+	width: 0px;
+	bottom: -5px;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+.li::before {
+	right: 50%;
+}
+
+.li::after {
+	left: 50%;
+}
+
+.li:hover::before,
+.li:hover::after {
+	width: 30%;
+}
+
+.li::after:nth-last-child(0),
+.li::before:nth-last-child(0) {
+	left: 0;
+	right: 0;
+}
+
+.iconFacebookContainer {
+	padding: 0 30px;
+	list-style: none;
+}
+
+.iconFacebook {
+	transition: 0.3s;
+}
+
+.iconFacebook:hover {
+	filter: invert(1);
+}
+
+.logo {
+	width: 100%;
+	max-width: 90px;
+	margin: 20px 0;
+	transition: 0.3s;
+}
+
+.logoScroll {
+	width: 100%;
+	max-width: 60px;
+	margin: 10px 0;
+	transition: 0.3s;
+}
+
+.logo:hover,
+.logoScroll:hover {
+	transform: scale(1.1);
+	transition: 0.3s;
+}
+
+.active {
+	padding-bottom: 3px;
+	border-bottom: 2px solid white;
+}
