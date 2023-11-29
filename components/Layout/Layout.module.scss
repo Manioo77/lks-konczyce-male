@@ -1,3 +1,5 @@
+@import '../../styles/palette.scss';
+
 .footballPitch {
 	background-image: url('../../public/images/background.jpg');
 	background-size: cover;
@@ -16,5 +18,5 @@
 .text {
 	position: absolute;
 	z-index: 1;
-	color: #fff;
+	color: $customWhite;
 }

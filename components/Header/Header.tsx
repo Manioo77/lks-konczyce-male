@@ -22,34 +22,34 @@ export default function Header() {
 
 	return (
 		<>
-			<header className={scrollPage === true ? styles.blur : styles.header}>
+			<header className={scrollPage ? styles.blur : styles.header}>
 				<Link href='/'>
-					<img src='/icons/logoLks.svg' alt='logo' className={scrollPage === true ? styles.logoScroll : styles.logo} />
+					<img src='/icons/logoLks.svg' alt='logo' className={scrollPage ? styles.logoScroll : styles.logo} />
 				</Link>
 				<nav>
 					<ul className={styles.ul}>
 						<li className={styles.li}>
 							<Link href='/news' className={router.pathname == '/news' ? styles.active : ''}>
-								AKTUALNOŚCI
+								aktualności
 							</Link>
 						</li>
 						<li className={styles.li}>
 							<Link href='/team' className={router.pathname == '/team' ? styles.active : ''}>
-								DRUŻYNA
+								drużyna
 							</Link>
 						</li>
 						<li className={styles.li}>
 							<Link href='/gallery' className={router.pathname == '/gallery' ? styles.active : ''}>
-								GALERIA
+								galeria
 							</Link>
 						</li>
 						<li className={styles.li}>
 							<Link href='/history' className={router.pathname == '/history' ? styles.active : ''}>
-								HISTORIA
+								historia
 							</Link>
 						</li>
 						<li className={styles.iconFacebookContainer}>
-							<a href='https://www.facebook.com/lkskonczycemale?locale=pl_PL' target='_blank'>
+							<a href='https://www.facebook.com/lkskonczycemale?locale=pl_PL' target='_blank' rel='noopener noreferrer'>
 								<img className={styles.iconFacebook} src='/icons/facebook.svg' alt='facebook' />
 							</a>
 						</li>

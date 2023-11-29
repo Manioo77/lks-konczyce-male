@@ -1,24 +1,25 @@
-.header {
-	width: 100%;
-	position: fixed;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 100px;
-	z-index: 2;
-	transition: 0.3s;
-}
+@import '../../styles/variables.scss';
+@import '../../styles/palette.scss';
 
+.header,
 .blur {
 	width: 100%;
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 100px;
-	background-color: rgba($color: #000000, $alpha: 0.2);
+	padding: 0 spacing(10);
 	transition: 0.3s;
 	z-index: 2;
+}
+
+.header {
+	height: spacing(14);
+}
+
+.blur {
+	height: spacing(11);
+	background-color: rgba($color: #000000, $alpha: 0.2);
 }
 
 .ul {
@@ -28,23 +29,23 @@
 
 .li {
 	position: relative;
-	padding: 0 30px;
+	margin: 0 spacing(3);
 	font-weight: 700;
-	font-size: 1.8rem;
-	letter-spacing: 1px;
+	font-size: spacing(1.6);
+	letter-spacing: spacing(0.1);
+	text-transform: uppercase;
 	list-style: none;
-	color: #fff;
+	color: $customWhite;
 	transition: 0.3s;
-	margin-bottom: 5px;
 }
 
 .li::before,
 .li::after {
 	content: '';
 	position: absolute;
-	width: 0px;
-	bottom: -5px;
-	border-bottom: 2px solid rgb(255, 255, 255);
+	width: spacing(0);
+	bottom: spacing(-0.5);
+	border-bottom: spacing(0.2) solid $customWhite;
 	transition: 0.3s;
 }
 
@@ -58,7 +59,7 @@
 
 .li:hover::before,
 .li:hover::after {
-	width: 30%;
+	width: 50%;
 }
 
 .li::after:nth-last-child(0),
@@ -68,7 +69,7 @@
 }
 
 .iconFacebookContainer {
-	padding: 0 30px;
+	padding: 0 spacing(3);
 	list-style: none;
 }
 
@@ -82,15 +83,15 @@
 
 .logo {
 	width: 100%;
-	max-width: 90px;
-	margin: 20px 0;
+	max-width: spacing(8);
+	margin: spacing(2) 0;
 	transition: 0.3s;
 }
 
 .logoScroll {
 	width: 100%;
-	max-width: 60px;
-	margin: 10px 0;
+	max-width: spacing(6);
+	margin: spacing(1) 0;
 	transition: 0.3s;
 }
 
@@ -101,6 +102,6 @@
 }
 
 .active {
-	padding-bottom: 3px;
-	border-bottom: 2px solid white;
+	padding-bottom: spacing(0.3);
+	border-bottom: spacing(0.2) solid $customWhite;
 }
