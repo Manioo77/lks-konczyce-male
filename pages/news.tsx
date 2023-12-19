@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Layout from "@/components/Layout/Layout";
+import { getAllNewsIds } from "@/lib/utils";
 
-export default function News() {
+export default function News({ urls }) {
   return (
     <Layout pageTitle="Aktualności">
       <div>
@@ -10,4 +11,14 @@ export default function News() {
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const ids = getAllNewsIds();
+  const urls = ids.map((id) => `/news/${id}`);
+  return {
+    props: {
+      urls,
+    },
+  };
 }
