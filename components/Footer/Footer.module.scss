@@ -1,0 +1,137 @@
+@import '../../styles/variables.scss';
+@import '../../styles/palette.scss';
+
+.footerContainer {
+	background-color: $footerColor;
+}
+
+//sponsor
+
+.sponsorContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: spacing(4);
+}
+
+.sponsorImg {
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.sponsorImg:hover {
+	transform: scale(1.1);
+}
+
+//tableMatch
+
+.containerTableMatch {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('../../public/images/tableMatchBackground.jpg');
+	background-size: cover;
+	background-position: left;
+	background-attachment: fixed;
+}
+
+.shadowBox {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+.tableMatchImg {
+	width: 100%;
+	max-width: spacing(70);
+	margin: spacing(4) 0;
+}
+
+//news
+
+.newsSection {
+	margin: 0 spacing(4) spacing(6);
+}
+
+.textNews {
+	padding: spacing(3);
+	font-size: spacing(3.2);
+	color: $customWhite;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.containerNews {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.news {
+	position: relative;
+	width: 100%;
+	max-width: spacing(40);
+	cursor: pointer;
+}
+
+.news:hover > .newsShadow {
+	height: 100%;
+	color: $customWhite;
+}
+
+.newsShadow {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 0;
+	font-size: spacing(1.8);
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: 0.3s;
+	color: transparent;
+}
+
+.newsImg {
+	width: 100%;
+	height: 100%;
+}
+
+.burgundLineContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.burgundLine {
+	width: 100%;
+	height: spacing(0.2);
+	margin: 0 spacing(4);
+	background-color: $burgund;
+}
+
+.informations {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: spacing(1) spacing(4) spacing(1);
+}
+
+.text {
+	font-size: spacing(1.2);
+	color: $customWhite;
+}
+
+.copyright {
+	font-size: spacing(1.6);
+	color: $customWhite;
+	font-weight: bold;
+}
+
+.boldText {
+	font-weight: bold;
+}
