@@ -1,8 +1,8 @@
 import Layout from "@/components/Layout/Layout";
-import { getNewsData, getAllNewsIds } from "@/lib/utils";
+import { getSingleNewsData, getAllNewsBasicData } from "@/lib/utils";
 
-export default function News({ postData }) {
-  const { title, date } = postData;
+export default function News({ newsData }) {
+  const { title, date } = newsData;
   return (
     <Layout pageTitle="Galeria">
       <div>
@@ -14,8 +14,8 @@ export default function News({ postData }) {
 }
 
 export async function getStaticPaths() {
-  const ids = getAllNewsIds();
-  const paths = ids.map((id) => ({ params: { id } }));
+  const newsData = getAllNewsBasicData();
+  const paths = newsData.map((news) => ({ params: { id: news.id } }));
   return {
     paths,
     fallback: false,
@@ -23,10 +23,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = getNewsData(params.id);
+  const newsData = getSingleNewsData(params.id);
   return {
     props: {
-      postData,
+      newsData,
     },
   };
 }
