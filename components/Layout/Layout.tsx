@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import styles from './Layout.module.scss'
-import Header from '../Header/Header'
+import styles from '@/components/Layout/Layout.module.scss'
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
 
 export default function Layout({ children, pageTitle = 'LKS Kończyce Małe' }) {
 	return (
@@ -18,7 +19,7 @@ export default function Layout({ children, pageTitle = 'LKS Kończyce Małe' }) 
 				<div className={styles.text}>{children}</div>
 				<div className={styles.shadowBox}></div>
 			</main>
-			{/* <Footer/> */}
+			<Footer />
 		</>
 	)
 }

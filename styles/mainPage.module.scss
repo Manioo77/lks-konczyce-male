@@ -1,0 +1,40 @@
+@import '@/styles/palette.scss';
+@import '@/styles/variables.scss';
+
+.mainPage {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.seasonContainer {
+	width: 100%;
+	max-width: spacing(60);
+	line-height: spacing(8);
+	padding-right: spacing(2);
+	background-color: $burgund;
+}
+
+.textContainer {
+	width: 100vw;
+}
+
+.season {
+	text-transform: uppercase;
+	color: $customWhite;
+	font-size: spacing(1.8);
+	font-weight: bold;
+	text-align: right;
+}
+
+.text {
+	margin-top: spacing(2);
+	margin-left: 5%;
+	font-size: spacing(9);
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1;
+}
