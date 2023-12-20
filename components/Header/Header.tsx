@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import styles from './Header.module.scss'
+import Image from 'next/image'
+import styles from '@/components/Header/Header.module.scss'
+
+import logo from '@/public/icons/logoLks.svg'
+import facebook from '@/public/icons/facebook.svg'
 
 export default function Header() {
 	const [scrollPage, setScrollPage] = useState(false)
@@ -24,9 +28,11 @@ export default function Header() {
 		<>
 			<header className={scrollPage ? styles.blur : styles.header}>
 				<Link href='/'>
-					<img src='/icons/logoLks.svg' alt='logo' className={scrollPage ? styles.logoScroll : styles.logo} />
+					<div data-aos='fade-down'>
+						<Image src={logo} className={scrollPage ? styles.logoScroll : styles.logo} alt='logo' />
+					</div>
 				</Link>
-				<nav>
+				<nav data-aos='fade-down'>
 					<ul className={styles.ul}>
 						<li className={styles.li}>
 							<Link href='/news' className={router.pathname == '/news' ? styles.active : ''}>
@@ -50,7 +56,7 @@ export default function Header() {
 						</li>
 						<li className={styles.iconFacebookContainer}>
 							<a href='https://www.facebook.com/lkskonczycemale?locale=pl_PL' target='_blank' rel='noopener noreferrer'>
-								<img className={styles.iconFacebook} src='/icons/facebook.svg' alt='facebook' />
+								<Image src={facebook} className={styles.iconFacebook} alt='facebook' />
 							</a>
 						</li>
 					</ul>

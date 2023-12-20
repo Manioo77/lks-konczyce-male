@@ -1,26 +1,8 @@
-@import '../../styles/variables.scss';
-@import '../../styles/palette.scss';
+@import '@/styles/variables.scss';
+@import '@/styles//palette.scss';
 
 .footerContainer {
 	background-color: $footerColor;
-}
-
-//sponsor
-
-.sponsorContainer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: spacing(4);
-}
-
-.sponsorImg {
-	transition: 0.3s;
-	cursor: pointer;
-}
-
-.sponsorImg:hover {
-	transform: scale(1.1);
 }
 
 //tableMatch
@@ -51,11 +33,14 @@
 //news
 
 .newsSection {
-	margin: 0 spacing(4) spacing(6);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: spacing(4) 0;
 }
 
 .textNews {
-	padding: spacing(3);
+	padding-bottom: spacing(2);
 	font-size: spacing(3.2);
 	color: $customWhite;
 	text-align: center;
@@ -63,6 +48,8 @@
 }
 
 .containerNews {
+	width: 100%;
+	max-width: spacing(140);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -71,6 +58,7 @@
 .news {
 	position: relative;
 	width: 100%;
+	padding: spacing(2);
 	max-width: spacing(40);
 	cursor: pointer;
 }
@@ -100,6 +88,28 @@
 	height: 100%;
 }
 
+//sponsor
+
+.sponsorContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: spacing(4);
+	z-index: 0;
+}
+
+.sponsorImg {
+	padding: spacing(2);
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.sponsorImg:hover {
+	transform: scale(1.1);
+}
+
+//line
+
 .burgundLineContainer {
 	display: flex;
 	justify-content: center;
@@ -110,7 +120,7 @@
 .burgundLine {
 	width: 100%;
 	height: spacing(0.2);
-	margin: 0 spacing(4);
+	margin: 0 0 spacing(2);
 	background-color: $burgund;
 }
 

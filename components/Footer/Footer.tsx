@@ -1,7 +1,12 @@
-import styles from './Footer.module.scss'
+import styles from '@/components/Footer/Footer.module.scss'
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Image from 'next/image'
+
+import article from '@/public/images/newsNew.png'
+import matchTable from '@/public/images/matchTable.png'
+import sponsorImg from '@/public/images/sponsor.png'
 
 export default function Footer() {
 	useEffect(() => {
@@ -19,15 +24,15 @@ export default function Footer() {
 					<div className={styles.containerNews}>
 						<div data-aos='flip-down' className={styles.news}>
 							<p className={styles.newsShadow}>Pierwszy artykuł</p>
-							<img className={styles.newsImg} src='/images/newsNew.png' alt='first article' />
+							<Image className={styles.newsImg} src={article} alt='first article' />
 						</div>
 						<div data-aos='flip-down' className={styles.news}>
 							<p className={styles.newsShadow}>Drugi artykuł</p>
-							<img className={styles.newsImg} src='/images/newsNew.png' alt='second article' />
+							<Image className={styles.newsImg} src={article} alt='second article' />
 						</div>
 						<div data-aos='flip-down' className={styles.news}>
 							<p className={styles.newsShadow}>Trzeci artykuł</p>
-							<img className={styles.newsImg} src='/images/newsNew.png' alt='third article' />
+							<Image className={styles.newsImg} src={article} alt='third article' />
 						</div>
 					</div>
 				</div>
@@ -36,7 +41,9 @@ export default function Footer() {
 						href='https://regiowyniki.pl/wyniki/Pilka_Nozna/2023/2024/20231212/mecze/Slaskie/Klasa_A/Skoczow/'
 						target='_blank'
 						rel='noopener noreferrer'>
-						<img className={styles.tableMatchImg} src='/images/matchTable.png' alt='tableMatch' />
+						<div data-aos='fade-right'>
+							<Image className={styles.tableMatchImg} src={matchTable} alt='tableMatch' />
+						</div>
 					</a>
 				</div>
 				<div className={styles.sponsorContainer}>
@@ -44,12 +51,9 @@ export default function Footer() {
 						href='https://www.facebook.com/studentprojectofficial?locale=pl_PL'
 						target='_blank'
 						rel='noopener noreferrer'>
-						<img
-							data-aos='flip-left'
-							className={styles.sponsorImg}
-							src='/images/sponsor.png'
-							alt='student project sponsor'
-						/>
+						<div data-aos='flip-down'>
+							<Image className={styles.sponsorImg} src={sponsorImg} alt='student project sponsor' />
+						</div>
 					</a>
 				</div>
 				<div className={styles.burgundLineContainer}>

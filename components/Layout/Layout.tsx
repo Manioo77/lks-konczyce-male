@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import styles from './Layout.module.scss'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import styles from '@/components/Layout/Layout.module.scss'
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
 
 export default function Layout({ children, pageTitle = 'LKS Kończyce Małe' }) {
 	return (
