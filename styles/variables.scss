@@ -3,3 +3,25 @@ $baseSpacing: 1rem;
 @function spacing($multiplier: 1) {
   @return $multiplier * $baseSpacing;
 }
+
+$maxWidth: 1920px;
+$breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1200px,
+  xl: 1536px,
+  xxl: $maxWidth,
+);
+
+@mixin up($breakpoint) {
+  @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin down($breakpoint) {
+  @media only screen and (max-width: #{map-get($breakpoints, $breakpoint) - 1}) {
+    @content;
+  }
+}
