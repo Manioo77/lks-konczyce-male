@@ -25,11 +25,19 @@ export function getAllNewsBasicData() {
 }
 
 export function getSingleNewsData(id: string) {
+  const newsFiles = fs.readdirSync(newsDir);
   const newsFile = path.join(newsDir, `${id}.md`);
+  const image = newsFiles.find(
+    (f) => f.includes(id) && f.match(/\.png$|\.jpg|\.jpeg$$/)
+  );
   const fileContent = fs.readFileSync(newsFile, "utf8");
   const formattedResult = matter(fileContent);
   return {
     id,
-    ...formattedResult.data,
+    imageUrl: image ? `/content/news/${image}` : null,
+    data: {
+      ...formattedResult.data,
+      content: formattedResult.content,
+    },
   };
 }
