@@ -3,105 +3,329 @@
 
 .header,
 .blur {
-	width: 100%;
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 	padding: 0 spacing(10);
 	transition: 0.3s;
-	z-index: 2;
+	z-index: 10;
+
+	@include up(xxl) {
+		padding: spacing(10) spacing(40);
+	}
+
+	@include down(xl) {
+		padding: 0 spacing(5);
+	}
+
+	@include down(md) {
+		padding: 0 spacing(3);
+	}
+
+	@include down(sm) {
+		padding: 0;
+	}
 }
 
 .header {
 	height: spacing(14);
+
+	@include down(xl) {
+		height: spacing(10);
+	}
+
+	@include down(md) {
+		height: spacing(8);
+	}
 }
 
 .blur {
 	height: spacing(11);
-	background-color: rgba($color: #000000, $alpha: 0.5);
-}
+	background-color: rgba($color: $dark, $alpha: 0.5);
 
-.ul {
-	display: flex;
-	align-items: center;
-}
-
-.li {
-	position: relative;
-	margin: 0 spacing(3);
-	font-weight: 700;
-	font-size: spacing(1.6);
-	letter-spacing: spacing(0.1);
-	text-transform: uppercase;
-	list-style: none;
-	color: $customWhite;
-	transition: 0.3s;
-}
-
-.li::before,
-.li::after {
-	content: '';
-	position: absolute;
-	width: spacing(0);
-	bottom: spacing(-0.5);
-	border-bottom: spacing(0.2) solid $customWhite;
-	transition: 0.3s;
-}
-
-.li::before {
-	right: 50%;
-}
-
-.li::after {
-	left: 50%;
-}
-
-.li:hover::before,
-.li:hover::after {
-	width: 50%;
-}
-
-.li::after:nth-last-child(0),
-.li::before:nth-last-child(0) {
-	left: 0;
-	right: 0;
-}
-
-.iconFacebookContainer {
-	padding: 0 spacing(3);
-	list-style: none;
-}
-
-.iconFacebook {
-	transition: 0.3s;
-}
-
-.iconFacebook:hover {
-	filter: invert(1);
+	@include down(xl) {
+		height: spacing(8);
+	}
 }
 
 .logo {
-	width: 100%;
 	max-width: spacing(8);
-	margin: spacing(2) 0;
 	transition: 0.3s;
+	z-index: 10000;
+
+	.logoScroll {
+		max-width: spacing(6);
+		margin: spacing(1) 0;
+		transition: 0.3s;
+
+		&:hover,
+		&:hover {
+			transform: scale(1.1);
+		}
+
+		@include up(xxl) {
+			max-width: spacing(12);
+			margin: spacing(2) 0;
+		}
+
+		@include down(xl) {
+			max-width: spacing(4);
+		}
+
+		@include down(md) {
+			max-width: spacing(4);
+		}
+
+		@include down(sm) {
+			top: spacing(0.5);
+			left: spacing(2);
+			position: fixed;
+			margin: 0;
+			max-width: spacing(4);
+			margin: 0;
+		}
+	}
+
+	&:hover,
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	@include up(xxl) {
+		max-width: spacing(12);
+		margin: spacing(2) 0;
+	}
+
+	@include down(xl) {
+		max-width: spacing(6);
+	}
+
+	@include down(md) {
+		max-width: spacing(4);
+	}
+
+	@include down(sm) {
+		position: fixed;
+		top: spacing(0.5);
+		left: spacing(2);
+		margin: 0;
+	}
 }
 
-.logoScroll {
+.burgerBtn {
+	padding: spacing(1);
+	margin-right: spacing(2);
+	background: none;
+	border: spacing(0.1) solid transparent;
+	z-index: 1000;
+	opacity: 0;
+	cursor: pointer;
+
+	&:hover {
+		.burgerBtnBars::after,
+		.burgerBtnBars::before {
+			width: 100%;
+		}
+	}
+
+	&:focus {
+		outline: none;
+		border: spacing(0.1) solid rgba(255, 255, 255, 0.5);
+		border-radius: spacing(0.8);
+	}
+
+	&Box {
+		position: relative;
+		width: spacing(3.2);
+		height: spacing(2.4);
+	}
+
+	&Bars,
+	&Bars::after,
+	&Bars::before {
+		position: absolute;
+		right: 0;
+		height: spacing(0.2);
+		content: '';
+		background-color: $customWhite;
+		transition: 0.3s;
+	}
+
+	&Bars {
+		width: 100%;
+
+		&::after {
+			top: spacing(1.1);
+			width: 60%;
+		}
+
+		&::before {
+			top: spacing(2.3);
+			width: 30%;
+			transition-delay: 0.1s;
+		}
+	}
+
+	@include down(sm) {
+		opacity: 1;
+	}
+}
+
+.navDesktop {
+	display: flex;
+
+	@include down(sm) {
+		display: none;
+	}
+}
+
+.navDesktopItems {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.navMobile {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
 	width: 100%;
-	max-width: spacing(6);
-	margin: spacing(1) 0;
-	transition: 0.3s;
+	transform: translateX(100%);
+	transition: 0.5s;
+	background: rgb(115, 2, 2);
+	background: linear-gradient(180deg, rgba(115, 2, 2, 0.9500175070028011) 0%, rgba(0, 0, 0, 1) 100%);
+	z-index: 100;
+
+	&Shown {
+		transform: translateX(0);
+	}
+
+	@include down(sm) {
+		opacity: 1;
+	}
 }
 
-.logo:hover,
-.logoScroll:hover {
-	transform: scale(1.1);
+.navMobileItem,
+.navDesktopItem {
+	position: relative;
+	font-weight: 700;
+	font-size: spacing(1.6);
+	letter-spacing: spacing(0.1);
+	list-style: none;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: $customWhite;
 	transition: 0.3s;
+	text-align: center;
+
+	@include up(xxl) {
+		font-size: spacing(3);
+	}
 }
 
-.active {
-	padding-bottom: spacing(0.3);
-	border-bottom: spacing(0.2) solid $customWhite;
+.navMobileItem {
+	margin: spacing(0.5);
+	font-size: spacing(2.2);
+
+	&:hover {
+		color: $dark;
+	}
+
+	.activeMobileLink {
+		color: $dark;
+		border-bottom: spacing(0.2) solid $dark;
+	}
+}
+
+.navDesktopItem {
+	margin: 0 spacing(3);
+
+	.activeDesktopLink {
+		padding-bottom: spacing(0.3);
+		border-bottom: spacing(0.2) solid $customWhite;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		bottom: spacing(-0.5);
+		border-bottom: spacing(0.2) solid $customWhite;
+		transition: 0.3s;
+	}
+
+	&::before {
+		right: 50%;
+	}
+
+	&::after {
+		left: 50%;
+	}
+
+	&:hover::before,
+	&:hover::after {
+		width: 50%;
+	}
+
+	@include down(xl) {
+		margin: 0 spacing(2);
+		font-size: spacing(1.4);
+	}
+
+	@include down(md) {
+		margin: 0 spacing(1.5);
+		font-size: spacing(1.2);
+	}
+}
+
+.navMobileFacebook {
+	margin: spacing(1);
+	text-align: center;
+	list-style: none;
+	color: $customWhite;
+	transition: 0.3s;
+
+	&:hover {
+		filter: invert(1);
+	}
+}
+
+.navDesktopFacebook {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 spacing(3);
+	list-style: none;
+
+	.iconFacebookDesktop {
+		max-width: spacing(3);
+		transition: 0.3s;
+		cursor: pointer;
+
+		&:hover {
+			filter: invert(1);
+		}
+
+		@include up(xxl) {
+			max-width: spacing(5);
+			height: spacing(5);
+		}
+
+		@include down(md) {
+			max-width: spacing(2);
+		}
+	}
+
+	@include down(xl) {
+		padding: 0 spacing(1);
+		max-width: spacing(2);
+	}
 }

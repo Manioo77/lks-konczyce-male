@@ -13,9 +13,30 @@
 .seasonContainer {
 	width: 100%;
 	max-width: spacing(60);
-	line-height: spacing(8);
 	padding-right: spacing(2);
+	line-height: spacing(8);
 	background-color: $burgund;
+
+	@include up(xxl) {
+		max-width: spacing(110);
+		line-height: spacing(10);
+	}
+
+	@include down(xl) {
+		max-width: spacing(40);
+		line-height: spacing(6);
+	}
+
+	@include down(md) {
+		max-width: spacing(30);
+		line-height: spacing(5);
+	}
+
+	@include down(sm) {
+		max-width: spacing(100);
+		line-height: spacing(5);
+		padding-right: 0;
+	}
 }
 
 .textContainer {
@@ -28,6 +49,22 @@
 	font-size: spacing(1.8);
 	font-weight: bold;
 	text-align: right;
+
+	@include up(xxl) {
+		font-size: spacing(2.2);
+	}
+
+	@include down(xl) {
+		font-size: spacing(1.6);
+	}
+
+	@include down(md) {
+		font-size: spacing(1.4);
+	}
+
+	@include down(sm) {
+		text-align: center;
+	}
 }
 
 .text {
@@ -37,4 +74,23 @@
 	text-transform: uppercase;
 	font-weight: bold;
 	line-height: 1;
+
+	@include up(xxl) {
+		margin-top: spacing(3);
+		font-size: spacing(11);
+		margin-left: 10%;
+	}
+
+	@include down(xl) {
+		font-size: spacing(6);
+	}
+
+	@include down(md) {
+		font-size: spacing(4);
+	}
+
+	@include down(sm) {
+		text-align: center;
+		margin-left: 0;
+	}
 }

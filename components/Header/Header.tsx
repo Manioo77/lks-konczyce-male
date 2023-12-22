@@ -9,11 +9,16 @@ import facebook from '@/public/icons/facebook.svg'
 
 export default function Header() {
 	const [scrollPage, setScrollPage] = useState(false)
+	const [mobileMenu, setMobileMenu] = useState(false)
 	const router = useRouter()
 
 	const handleScroll = () => {
 		const scrollPosition = window.scrollY
 		setScrollPage(scrollPosition > 0)
+	}
+
+	const handleChangeIcon = () => {
+		setMobileMenu(prevState => !prevState)
 	}
 
 	useEffect(() => {
@@ -28,33 +33,67 @@ export default function Header() {
 		<>
 			<header className={scrollPage ? styles.blur : styles.header}>
 				<Link href='/'>
-					<div data-aos='fade-down'>
+					<div data-aos='fade-down' className={styles.logo}>
 						<Image src={logo} className={scrollPage ? styles.logoScroll : styles.logo} alt='logo' />
 					</div>
 				</Link>
-				<nav data-aos='fade-down'>
-					<ul className={styles.ul}>
-						<li className={styles.li}>
-							<Link href='/news' className={router.pathname == '/news' ? styles.active : ''}>
+				<button onClick={handleChangeIcon} className={styles.burgerBtn}>
+					<div className={styles.burgerBtnBox}>
+						<div className={styles.burgerBtnBars}></div>
+					</div>
+				</button>
+				<nav data-aos='fade-down' className={styles.navDesktop}>
+					<ul className={styles.navDesktopItems}>
+						<li className={styles.navDesktopItem}>
+							<Link href='/news' className={router.pathname == '/news' ? styles.activeDesktopLink : ''}>
 								aktualności
 							</Link>
 						</li>
-						<li className={styles.li}>
-							<Link href='/team' className={router.pathname == '/team' ? styles.active : ''}>
+						<li className={styles.navDesktopItem}>
+							<Link href='/team' className={router.pathname == '/team' ? styles.activeDesktopLink : ''}>
 								drużyna
 							</Link>
 						</li>
-						<li className={styles.li}>
-							<Link href='/gallery' className={router.pathname == '/gallery' ? styles.active : ''}>
+						<li className={styles.navDesktopItem}>
+							<Link href='/gallery' className={router.pathname == '/gallery' ? styles.activeDesktopLink : ''}>
 								galeria
 							</Link>
 						</li>
-						<li className={styles.li}>
-							<Link href='/history' className={router.pathname == '/history' ? styles.active : ''}>
+						<li className={styles.navDesktopItem}>
+							<Link href='/history' className={router.pathname == '/history' ? styles.activeDesktopLink : ''}>
 								historia
 							</Link>
 						</li>
-						<li className={styles.iconFacebookContainer}>
+						<li className={styles.navDesktopFacebook}>
+							<a href='https://www.facebook.com/lkskonczycemale?locale=pl_PL' target='_blank' rel='noopener noreferrer'>
+								<Image src={facebook} className={styles.iconFacebookDesktop} alt='facebook' />
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<nav className={`${styles.navMobile} ${mobileMenu ? styles.navMobileShown : ''}`}>
+					<ul className={styles.navMobileItems}>
+						<li className={styles.navMobileItem}>
+							<Link href='/news' className={router.pathname == '/news' ? styles.activeMobileLink : ''}>
+								aktualności
+							</Link>
+						</li>
+						<li className={styles.navMobileItem}>
+							<Link href='/team' className={router.pathname == '/team' ? styles.activeMobileLink : ''}>
+								drużyna
+							</Link>
+						</li>
+						<li className={styles.navMobileItem}>
+							<Link href='/gallery' className={router.pathname == '/gallery' ? styles.activeMobileLink : ''}>
+								galeria
+							</Link>
+						</li>
+						<li className={styles.navMobileItem}>
+							<Link href='/history' className={router.pathname == '/history' ? styles.activeMobileLink : ''}>
+								historia
+							</Link>
+						</li>
+						<li className={styles.navMobileFacebook}>
 							<a href='https://www.facebook.com/lkskonczycemale?locale=pl_PL' target='_blank' rel='noopener noreferrer'>
 								<Image src={facebook} className={styles.iconFacebook} alt='facebook' />
 							</a>
