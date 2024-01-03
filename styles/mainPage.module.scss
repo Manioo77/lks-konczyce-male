@@ -1,96 +1,93 @@
-@import '@/styles/palette.scss';
-@import '@/styles/variables.scss';
+@import "@/styles/palette.scss";
+@import "@/styles/variables.scss";
 
 .mainPage {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .seasonContainer {
-	width: 100%;
-	max-width: spacing(60);
-	padding-right: spacing(2);
-	line-height: spacing(8);
-	background-color: $burgund;
+  width: 100%;
+  max-width: spacing(60);
+  padding-right: spacing(2);
+  line-height: spacing(8);
+  background-color: $burgund;
 
-	@include up(xxl) {
-		max-width: spacing(110);
-		line-height: spacing(10);
-	}
+  @include up(xxl) {
+    max-width: spacing(110);
+    line-height: spacing(10);
+  }
 
-	@include down(xl) {
-		max-width: spacing(40);
-		line-height: spacing(6);
-	}
+  @include down(xl) {
+    max-width: spacing(40);
+    line-height: spacing(6);
+  }
 
-	@include down(md) {
-		max-width: spacing(30);
-		line-height: spacing(5);
-	}
+  @include down(md) {
+    max-width: spacing(30);
+    line-height: spacing(5);
+  }
 
-	@include down(sm) {
-		max-width: spacing(100);
-		line-height: spacing(5);
-		padding-right: 0;
-	}
-}
-
-.textContainer {
-	width: 100vw;
+  @include down(sm) {
+    max-width: spacing(100);
+    line-height: spacing(5);
+    padding-right: 0;
+  }
 }
 
 .season {
-	text-transform: uppercase;
-	color: $customWhite;
-	font-size: spacing(1.8);
-	font-weight: bold;
-	text-align: right;
+  text-transform: uppercase;
+  color: $customWhite;
+  font-size: spacing(1.8);
+  font-weight: bold;
+  text-align: right;
 
-	@include up(xxl) {
-		font-size: spacing(2.2);
-	}
+  @include up(xxl) {
+    font-size: spacing(2.2);
+  }
 
-	@include down(xl) {
-		font-size: spacing(1.6);
-	}
+  @include down(xl) {
+    font-size: spacing(1.6);
+  }
 
-	@include down(md) {
-		font-size: spacing(1.4);
-	}
+  @include down(md) {
+    font-size: spacing(1.4);
+  }
 
-	@include down(sm) {
-		text-align: center;
-	}
+  @include down(sm) {
+    text-align: center;
+  }
+}
+
+.textContainer {
+  width: 100%;
+  @include responsivePaddingns;
 }
 
 .text {
-	margin-top: spacing(2);
-	margin-left: 5%;
-	font-size: spacing(9);
-	text-transform: uppercase;
-	font-weight: bold;
-	line-height: 1;
+  margin-top: spacing(2);
+  font-size: spacing(9);
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
 
-	@include up(xxl) {
-		margin-top: spacing(3);
-		font-size: spacing(11);
-		margin-left: 10%;
-	}
+  @include up(xxl) {
+    margin-top: spacing(3);
+    font-size: spacing(11);
+  }
 
-	@include down(xl) {
-		font-size: spacing(6);
-	}
+  @include down(xl) {
+    font-size: spacing(6);
+  }
 
-	@include down(md) {
-		font-size: spacing(4);
-	}
+  @include down(md) {
+    font-size: spacing(4);
+  }
 
-	@include down(sm) {
-		text-align: center;
-		margin-left: 0;
-	}
+  @include down(sm) {
+    text-align: center;
+  }
 }
