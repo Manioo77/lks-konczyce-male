@@ -1,0 +1,28 @@
+@import '@/styles/variables.scss';
+@import '@/styles//palette.scss';
+
+.containerTableMatch {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('../../public/images/tableMatchBackground.jpg');
+	background-size: cover;
+	background-position: left;
+	background-attachment: fixed;
+}
+
+.tableMatchImg {
+	width: 100%;
+	max-width: spacing(70);
+	padding: spacing(4) spacing(2);
+
+	@include down(md) {
+		max-width: spacing(60);
+		padding: spacing(3) spacing(1);
+	}
+
+	@include down(sm) {
+		padding: spacing(2) 0;
+	}
+}
