@@ -19,7 +19,8 @@
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"target": "esnext" // Dodaj to, aby uniknąć błędu związanego z typami daty
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]

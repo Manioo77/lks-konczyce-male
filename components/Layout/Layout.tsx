@@ -19,7 +19,7 @@ export default function Layout({ children, pageTitle = "LKS Kończyce Małe" }) 
         <div className={styles.footballPitch}>
           <div className={styles.shadow} />
         </div>
-        <div className={styles.content}>{children}</div>
+        <div>{children}</div>
       </main>
       <Footer />
     </>
