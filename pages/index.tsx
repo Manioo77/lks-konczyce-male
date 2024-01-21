@@ -2,9 +2,10 @@ import Layout from '@/components/Layout/Layout'
 import styles from 'styles/mainPage.module.scss'
 import LatestNews from '@/components/LatestNews/LatestNews'
 import TableMatch from '@/components/TableMatch/TableMatch'
+import { getAllNewsBasicData } from '@/lib/utils'
 import Sponsors from '@/components/Sponsors/Sponsors'
 
-export default function Home() {
+export default function Home({ newsData }) {
 	return (
 		<Layout>
 			<div className='mainPage'>
@@ -16,9 +17,17 @@ export default function Home() {
 					<p className={styles.text}>kończyce małe</p>
 				</div>
 			</div>
-			<LatestNews />
+			<LatestNews newsData={newsData} />
 			<TableMatch />
-			<Sponsors />
 		</Layout>
 	)
+}
+
+export async function getStaticProps() {
+	const newsData = getAllNewsBasicData()
+	return {
+		props: {
+			newsData,
+		},
+	}
 }

@@ -35,3 +35,34 @@ img {
 	justify-content: center;
 	z-index: 1;
 }
+
+.slick-dots {
+	position: absolute !important;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center;
+	bottom: 10px !important;
+}
+
+.slick-dots li button:before {
+	font-size: 0 !important;
+}
+
+.slick-dots li {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.slick-dots li.slick-active button {
+	background-color: black !important;
+	transform: scale(1.4) !important;
+}
+
+.slick-dots li button {
+	background-color: #ccc !important;
+	width: 15px !important;
+	height: 15px !important;
+	border-radius: 50% !important;
+	cursor: pointer !important;
+}

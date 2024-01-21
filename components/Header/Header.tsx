@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import styles from '@/components/Header/Header.module.scss'
-
 import logo from '@/public/icons/logoLks.svg'
 import facebook from '@/public/icons/facebook.svg'
 
@@ -32,26 +31,24 @@ export default function Header() {
 	return (
 		<>
 			<header className={scrollPage ? styles.blur : styles.header}>
-				<Link href='/'>
-					<div data-aos='fade-down' className={styles.logo}>
-						<Image src={logo} className={scrollPage ? styles.logoScroll : styles.logo} alt='logo' />
-					</div>
-				</Link>
+				<div>
+					<Image src={logo} className={scrollPage ? styles.logoScroll : styles.logo} alt='logo' />
+				</div>
 				<button onClick={handleChangeIcon} className={styles.burgerBtn}>
 					<div className={styles.burgerBtnBox}>
 						<div className={styles.burgerBtnBars}></div>
 					</div>
 				</button>
-				<nav data-aos='fade-down' className={styles.navDesktop}>
+				<nav className={styles.navDesktop}>
 					<ul className={styles.navDesktopItems}>
 						<li className={styles.navDesktopItem}>
-							<Link href='/news' className={router.pathname == '/news' ? styles.activeDesktopLink : ''}>
-								aktualności
+							<Link href='/' className={router.pathname == '/' ? styles.activeDesktopLink : ''}>
+								strona główna
 							</Link>
 						</li>
 						<li className={styles.navDesktopItem}>
-							<Link href='/team' className={router.pathname == '/team' ? styles.activeDesktopLink : ''}>
-								drużyna
+							<Link href='/news' className={router.pathname == '/news' ? styles.activeDesktopLink : ''}>
+								aktualności
 							</Link>
 						</li>
 						<li className={styles.navDesktopItem}>
@@ -74,13 +71,13 @@ export default function Header() {
 				<nav className={`${styles.navMobile} ${mobileMenu ? styles.navMobileShown : ''}`}>
 					<ul className={styles.navMobileItems}>
 						<li className={styles.navMobileItem}>
-							<Link href='/news' className={router.pathname == '/news' ? styles.activeMobileLink : ''}>
-								aktualności
+							<Link href='/' className={router.pathname == '/' ? styles.activeMobileLink : ''}>
+								strona główna
 							</Link>
 						</li>
 						<li className={styles.navMobileItem}>
-							<Link href='/team' className={router.pathname == '/team' ? styles.activeMobileLink : ''}>
-								drużyna
+							<Link href='/news' className={router.pathname == '/news' ? styles.activeMobileLink : ''}>
+								aktualności
 							</Link>
 						</li>
 						<li className={styles.navMobileItem}>

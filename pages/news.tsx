@@ -7,9 +7,10 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styles from 'styles/news.module.scss'
 import { useEffect, useState } from 'react'
+type NewsData = { date: string; id: string; title: string; imageUrl: string }
+type NewsProps = { newsData: NewsData[] }
 
-export default function News({ newsData, urls }) {
-	console.log(newsData)
+export default function News({ newsData }: NewsProps) {
 	const [slidesToShow, setSlidesToShow] = useState(3)
 
 	const newsDataWithDates = newsData.map(newData => ({
@@ -17,24 +18,26 @@ export default function News({ newsData, urls }) {
 		dateObject: new Date(newData.date),
 	}))
 
-	const sortedNewDatas = newsDataWithDates.sort((a, b) => a.dateObject - b.dateObject).reverse()
+	const sortedNewDatas = newsDataWithDates.sort((a: any, b: any) => b.dateObject - a.dateObject)
 
 	useEffect(() => {
 		const handleResize = () => {
 			let newSlidesToShow = 3
+			let newSlidesToScroll = 3
 
 			if (window.innerWidth < 960) {
 				newSlidesToShow = 2
+				newSlidesToScroll = 2
 			}
 
 			if (window.innerWidth < 600) {
 				newSlidesToShow = 1
+				newSlidesToScroll = 1
 			}
 
 			setSlidesToShow(newSlidesToShow)
+			carouselSettings.slidesToScroll = newSlidesToScroll
 		}
-
-		handleResize()
 
 		window.addEventListener('resize', handleResize)
 
@@ -46,22 +49,21 @@ export default function News({ newsData, urls }) {
 	const carouselSettings = {
 		dots: true,
 		infinite: true,
-		speed: 100,
+		speed: 500,
 		slidesToShow: slidesToShow,
-		slidesToScroll: 1,
+		slidesToScroll: slidesToShow,
+		arrows: false,
 	}
 
 	return (
 		<Layout pageTitle='Aktualności'>
 			<section className='mainPage'>
-				<div className={styles.containerMain}>
-					<div className={styles.containerNews}>
+				<div className={styles.wrapper}>
+					<div className={styles.containerMain}>
 						<Slider {...carouselSettings}>
-							{sortedNewDatas.map(sortedNewData => {
-								return (
-									<div key={sortedNewData.key} data-aos='flip-down' className={styles.news}>
-										<p className={styles.newsShadow}>{sortedNewData.title}</p>
-										<p className={styles.newsShadow}>{sortedNewData.date}</p>
+							{sortedNewDatas.map(sortedNewData => (
+								<div key={sortedNewData.id} data-aos='flip-down' className={styles.containerNews}>
+									<div className={styles.news}>
 										<Link href={`/news/${sortedNewData.id}`}>
 											<Image
 												className={styles.newsImg}
@@ -70,10 +72,15 @@ export default function News({ newsData, urls }) {
 												width={400}
 												height={400}
 											/>
+											<div className={styles.newsShadow}></div>
+											<div className={styles.newsText}>
+												<p className={styles.newsHeading}>{sortedNewData.title}</p>
+												<p className={styles.newsDate}>{sortedNewData.date}</p>
+											</div>
 										</Link>
 									</div>
-								)
-							})}
+								</div>
+							))}
 						</Slider>
 					</div>
 				</div>
