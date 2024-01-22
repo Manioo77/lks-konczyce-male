@@ -3,7 +3,6 @@
 
 .newsSection {
 	width: 100%;
-	max-width: $maxWidth;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,7 +16,6 @@
 
 .textNews {
 	width: 100%;
-	padding-bottom: spacing(2);
 	font-size: spacing(3.2);
 	color: $customWhite;
 	text-align: center;
@@ -35,7 +33,7 @@
 
 .containerNews {
 	width: 100%;
-	max-width: spacing(140);
+	max-width: $maxWidth;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -47,39 +45,53 @@
 }
 
 .news {
-	position: relative;
-	width: 100%;
-	padding: spacing(2);
-	max-width: spacing(40);
+	margin: spacing(4);
 	cursor: pointer;
+	font-size: 0;
 
-	@include down(md) {
-		padding: spacing(1);
-		max-width: spacing(25);
+	&:hover {
+		transform: scale(1.05);
 	}
 }
 
-.news:hover > .newsShadow {
-	height: 100%;
-	color: $customWhite;
+.newsImg {
+	width: 100%;
+	max-width: spacing(60);
+	border-radius: spacing(2);
+
+	@include down(md) {
+		max-width: spacing(40);
+	}
 }
 
 .newsShadow {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 0;
-	font-size: spacing(1.8);
-	background-color: rgba(0, 0, 0, 0.5);
-	transition: 0.3s;
-	color: transparent;
-}
-
-.newsImg {
 	width: 100%;
 	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: spacing(2);
+	border: spacing(0.2) solid $burgund;
+}
+
+.newsText {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.newsHeading {
+	padding: spacing(0.5) spacing(1);
+	font-weight: bold;
+	font-size: spacing(1.8);
+
+	@include down(xl) {
+		font-size: spacing(1.6);
+	}
+}
+
+.newsDate {
+	padding: spacing(0.5) spacing(1);
+	font-size: spacing(1.2);
 }
