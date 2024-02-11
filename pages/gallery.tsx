@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout/Layout'
+import PopupImg from '@/components/PopupImg/PopupImg'
 import styles from 'styles/gallery.module.scss'
 import { useState, useEffect } from 'react'
 
@@ -43,17 +44,19 @@ export default function Gallery() {
 		}
 	}, [])
 
-	function handleTogglePopup(event) {
-		const { src } = event.target
-		setShownPopup(true)
-		setPopupImg(src)
+	function handleTogglePopup(e: React.MouseEvent<HTMLImageElement>) {
+		const target = e.target as HTMLImageElement
+		if (target && target.src) {
+			setShownPopup(true)
+			setPopupImg(target.src)
+		}
 	}
 
 	function handleClosePopup() {
 		setShownPopup(false)
 	}
 
-	function paginate(pageNumber) {
+	function paginate(pageNumber: number) {
 		setCurrentPage(pageNumber)
 	}
 
@@ -76,16 +79,7 @@ export default function Gallery() {
 						))}
 					</div>
 				</div>
-				{shownPopup && (
-					<div className={styles.popup} onClick={handleClosePopup}>
-						<div className={styles.containerPopup} onClick={e => e.stopPropagation()}>
-							<button onClick={handleClosePopup} className={styles.popup__close}>
-								X
-							</button>
-							<img src={popupImg} alt='' className={styles.popup__img} />
-						</div>
-					</div>
-				)}
+				{shownPopup && <PopupImg handleClosePopup={handleClosePopup} popupImg={popupImg} />}
 			</section>
 		</Layout>
 	)

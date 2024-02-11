@@ -12,7 +12,7 @@ export default function Layout({ children, pageTitle = 'LKS Kończyce Małe' }) 
 				<title>{pageTitle}</title>
 				<meta
 					name='description'
-					content='Strona klubowa zespołu LKS Kończyce Małe dla piłkarzy i kibiców. Aktualności, ostatnie mecze, tabela i statystyki. '
+					content='Strona klubowa zespołu LKS Kończyce Małe dla piłkarzy i kibiców. Aktualności, ostatnie mecze, tabela i statystyki.'
 				/>
 			</Head>
 			<Header />
