@@ -8,7 +8,7 @@
     </tr>
 </table>
 
-# Website for my portfolio
+# Sports club website
 
 To visit page click https://lks-football-team.netlify.app/ or clone locally and follow instructions given below.
 
