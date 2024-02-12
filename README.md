@@ -18,7 +18,7 @@ Strona internetowa klubu piłkarskiego została stworzona z wykorzystaniem zaawa
 
 ## Screenshot of the working page
 
-![Zrzut ekranu aplikacji](./images/lks.png)
+![Zrzut ekranu aplikacji](./public/images/lks.PNG)
 
 ## To run locally
 
