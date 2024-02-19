@@ -78,7 +78,7 @@ export default function History() {
                 {containerElements[currentPage].paragraph}
               </p>
               {containerElements[currentPage].list && (
-                <ul className={styles.trainerslist}>
+                <ul className={styles.trainersList}>
                   {containerElements[currentPage].list.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
@@ -91,7 +91,7 @@ export default function History() {
                 <h1 className={styles.heading}>{element.heading}</h1>
                 <p className={styles.paragraph}>{element.paragraph}</p>
                 {element.list && (
-                  <ul className={styles.trainerslist}>
+                  <ul className={styles.trainersList}>
                     {element.list.map((item, idx) => (
                       <li key={idx}>{item}</li>
                     ))}
