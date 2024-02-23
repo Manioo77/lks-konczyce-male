@@ -1,17 +1,18 @@
 import Layout from '@/components/Layout/Layout';
 import Link from 'next/link';
 import { getAllNewsBasicData } from '@/lib/utils';
+import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from 'styles/news.module.scss';
-import { useEffect, useState } from 'react';
 type NewsData = { date: string; id: string; title: string; imageUrl: string };
 type NewsProps = { newsData: NewsData[] };
 
 export default function News({ newsData }: NewsProps) {
-  const [slidesToShow, setSlidesToShow] = useState(3);
+  const isMobile = useMediaQuery({ maxWidth: 600 });
+  const slidesToShow = isMobile ? 1 : 3;
 
   const newsDataWithDates = newsData.map((newData) => ({
     ...newData,
@@ -21,32 +22,6 @@ export default function News({ newsData }: NewsProps) {
   const sortedNewDatas = newsDataWithDates.sort(
     (a: any, b: any) => b.dateObject - a.dateObject
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      let newSlidesToShow = 3;
-      let newSlidesToScroll = 3;
-
-      if (window.innerWidth < 960) {
-        newSlidesToShow = 2;
-        newSlidesToScroll = 2;
-      }
-
-      if (window.innerWidth < 600) {
-        newSlidesToShow = 1;
-        newSlidesToScroll = 1;
-      }
-
-      setSlidesToShow(newSlidesToShow);
-      carouselSettings.slidesToScroll = newSlidesToScroll;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const carouselSettings = {
     dots: true,
